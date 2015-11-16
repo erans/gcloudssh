@@ -56,7 +56,7 @@ def _build_instances_index():
         if not instance["name"] in INSTANCES_NAME_INDEX:
             INSTANCES_NAME_INDEX[instance["name"]] = instance
 
-        ip = instance["networkInterfaces"][0]["accessConfigs"][0]["natIP"]
+        ip = instance["networkInterfaces"][0]["accessConfigs"][0].get("natIP", None)
         if not ip in INSTANCES_IP_INDEX:
             INSTANCES_IP_INDEX[ip] = instance
 
